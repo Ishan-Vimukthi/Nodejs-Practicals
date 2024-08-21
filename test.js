@@ -1,2 +1,6 @@
-const name = 'Ishan';
-console.log(name);
+const great = (name) => {
+    console.log('Hello, ' + name);
+}
+
+great("John");
+great("Jane");
