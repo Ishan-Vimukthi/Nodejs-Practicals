@@ -11,16 +11,24 @@ app.listen(3000);
 
 app.get('/', (req, res) => {
 
-    //res.send("<h1> Express Home Page </h1>");
-    res.sendFile('./views/index.html', {root: __dirname});
+    const blogs = [
+        {title: 'Yoshi finds eggs', snippet: 'Sample words for testing'},
+        {title: 'Yoshi finds eggs', snippet: 'Sample words for testing'},
+        {title: 'Yoshi finds eggs', snippet: 'Sample words for testing'},
+    ];
+    res.render('index', {blogs});
 
 });
 
 app.get('/about', (req, res) => {
 
-    res.sendFile('./views/about.html', {root: __dirname});
+    res.render('about');
+});
+
+app.get('/blogs/create', (req, res) =>{
+    res.render('create');
 });
 
 app.use((req, res) => {
-    res.sendFile('./views/404.html', {root: __dirname});
+    res.status(404).render('404');
 });
