@@ -27,17 +27,12 @@ mongoose.connect(dbURI, {
   });
 
 // Register view engine
-app.set('view engine', 'ejs');
+
 
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.get('/add-blog', (req, res) => {
-  const blog = new Blog({
-    title: 'new blog',
-    snippet: 'about my new blog',
-    body: 'more about my new blog'
-  });
+
 
   blog.save()
     .then((result) => {
